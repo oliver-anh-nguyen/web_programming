@@ -7,14 +7,23 @@
     color: darkred;
 }
 
-.formatDes:first-letter {
+.formatParagraph:first-letter {
     font-size: 1.5em;
 }
 
-.formatDes {
+.formatParagraph {
     color: darkblue;
     font-style: italic;
     font-weight: lighter;
+}
+
+.formatDes {
+    color: rebeccapurple;
+    font-family: "Khmer MN";
+}
+
+.formatText {
+    font-family: "Khmer MN";
 }
 
 .formatLink {
@@ -39,15 +48,20 @@ li {
     font-family: Avenir;
 }
 
-li > strong {
+li > span {
     font-style: italic;
 }
 
-p > strong {
+p > span {
     color: coral;
     font-weight: bold;
 }
 
 li:hover > a {
     text-decoration: underline;
+}
+
+ol {
+    display: flex;
+    flex-direction: column-reverse;
 }
