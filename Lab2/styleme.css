@@ -32,7 +32,7 @@ li > strong {
     font-style: italic;
 }
 
-color {
+p > strong {
     color: coral;
     font-weight: bold;
 }
