@@ -7,6 +7,10 @@
     color: darkred;
 }
 
+.formatDes:first-letter {
+    font-size: 1.5em;
+}
+
 .formatDes {
     color: darkblue;
     font-style: italic;
@@ -17,6 +21,7 @@
     color: darkred;
     font-style: italic;
     font-size: 12px;
+    text-decoration: none;
 }
 
 .formatIcon {
@@ -41,4 +46,8 @@ li > strong {
 p > strong {
     color: coral;
     font-weight: bold;
+}
+
+li:hover > a {
+    text-decoration: underline;
 }
