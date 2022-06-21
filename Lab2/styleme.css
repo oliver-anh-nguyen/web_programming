@@ -1,0 +1,38 @@
+.formatBody {
+    background-color: lightcyan;
+}
+
+.formatTitle {
+    font-family: "Lao MN";
+    color: darkred;
+}
+
+.formatDes {
+    color: darkblue;
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.formatLink {
+    color: darkred;
+    font-style: italic;
+    font-size: 12px;
+}
+
+.formatIcon {
+    width: 60px;
+    height: 60px;
+}
+
+li {
+    font-family: Avenir;
+}
+
+li > strong {
+    font-style: italic;
+}
+
+color {
+    color: coral;
+    font-weight: bold;
+}
