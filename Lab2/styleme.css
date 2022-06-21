@@ -24,6 +24,12 @@
     height: 60px;
 }
 
+.formatIconChecker {
+    border: 0px;
+    width: 88px;
+    height: 31px;
+}
+
 li {
     font-family: Avenir;
 }
