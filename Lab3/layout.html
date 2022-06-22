@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Layout</title>
+    <link href="layout.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="header">
+    <img src="../icons/icon_smile.png"/>
+    <h1>Welcome Anh Nguyen</h1>
+    <button>Logout</button>
+</div>
+
+<div class="detail">
+    <p class="title">Product List</p>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Actions</th>
+        </tr>
+        <tr>
+            <td>Node.js</td>
+            <td>$9.99</td>
+            <td>8</td>
+            <td><img src="../icons/icon_shopping.png"></td>
+        </tr>
+        <tr>
+            <td>React</td>
+            <td>$19.99</td>
+            <td>5</td>
+            <td><img src="../icons/icon_shopping.png"></td>
+        </tr>
+        <tr>
+            <td>Angular</td>
+            <td>$29.99</td>
+            <td>13</td>
+            <td><img src="../icons/icon_shopping.png"></td>
+        </tr>
+    </table>
+    <p class="title">Your Shopping Cart</p>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Quantity</th>
+        </tr>
+        <tr>
+            <td>Node.js</td>
+            <td>$9.99</td>
+            <td>8</td>
+            <td><input class="input" type="number" value="1" /></td>
+        </tr>
+        <tr>
+            <td>Angular</td>
+            <td>$19.99</td>
+            <td>5</td>
+            <td><input class="input" type="number" value="1" /></td>
+        </tr>
+        <tr>
+            <td colspan="4" class="total">Total: 300$</td>
+        </tr>
+    </table>
+    <div>
+        <button class="btn_order">Place Order</button>
+    </div>
+</div>
+
+</body>
+</html>
