@@ -1,5 +1,6 @@
 body {
     font-family: "Noto Sans Lisu";
+    background-color: lightcyan;
 }
 
 .header {
@@ -79,4 +80,10 @@ td > img {
 .input {
     width: 45px;
     text-align: center;
+}
+
+.formatIconChecker {
+    border: 0px;
+    width: 88px;
+    height: 31px;
 }
