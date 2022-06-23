@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <link href="form.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<form>
+<div class="header-title">
+    Workshop Registration
+    <select name="more_action" class="more-action">
+        <option>More Actions</option>
+        <option>Login</option>
+        <option>Game</option>
+    </select>
+</div>
+<div class="content">
+    <!--Left-->
+    <div class="panel-left">
+        <div class="underline">Register now while seats are available!</div>
+        <div class="text-form"> First Name <span class="require">*</span><input type="text" required></div>
+        <div class="text-form"> Last Name <span class="require">*</span><input type="text" required></div>
+        <div class="text-form"> Company/ Institution <span class="require">*</span><input type="text" required></div>
+        <div class="text-address"> Address <span class="require">*</span> <textarea type="text" required></textarea></div>
+        <div class="text-form"> City <input></div>
+        <div class="text-form"> State / Province / Region
+            <select name="more_state" class="more-state">
+                <option>-Select-</option>
+                <option>Iowa</option>
+                <option>Texas</option>
+            </select>
+        </div>
+        <div class="text-form"> Country
+            <select name="more_country" class="more-state">
+                <option>-Select-</option>
+                <option>VietNam</option>
+                <option>USA</option>
+            </select>
+        </div>
+        <div class="text-form"> Email <span class="require">*</span><input type="text" required></div>
+        <div class="text-form"> Phone Number <span class="require">*</span><input type="number" required></div>
+    </div>
+
+    <!--Right-->
+    <div class="panel-right">
+        <div class="underline">Lunch</div>
+        <div class="text-form"> Meal Preference
+            <select name="more_eat" class="more-state">
+                <option>Vegetarian</option>
+                <option>Vegetarian</option>
+                <option>Vegetarian</option>
+            </select>
+        </div>
+        <div class="top underline">Payment Detail</div>
+        <div class="text-form"> Payment method</div>
+        <div class="checkbox top">
+            <input type="checkbox" id="cash" name="cash" value="cash">
+            <label for="cash">Cash</label><br>
+            <input type="checkbox" id="cheque" name="cheque" value="Cachequer">
+            <label for="cheque">Cheque</label><br>
+            <input type="checkbox" id="demand-craft" name="demand-craft" value="demand-craft">
+            <label for="demand-craft"> Demand Craft</label><br>
+        </div>
+        <div class="text-form top"> DD/Check No.<input/></div>
+        <div class="text-form"> Draw On (Bank Name) <input/></div>
+        <div class="text-form"> Payable at <input/></div>
+    </div>
+</div>
+<!--Footer-->
+<div class="footer">
+    <button class="btn">Submit</button>
+    <button class="btn">Reset</button>
+</div>
+</form>
+</body>
+</html>
