@@ -1,6 +1,7 @@
 body {
     width: 75%;
     margin: 10px auto auto auto;
+    background-color: lightcyan;
 }
 
 .header-title {
@@ -110,4 +111,10 @@ button {
     font-family: "Arial Unicode MS";
     font-weight: bold;
     border: none;
+}
+
+.formatIconChecker {
+    border: 0px;
+    width: 88px;
+    height: 31px;
 }
