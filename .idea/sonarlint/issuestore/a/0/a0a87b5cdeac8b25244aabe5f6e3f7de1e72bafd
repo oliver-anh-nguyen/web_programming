@@ -1,0 +1,6 @@
+
+Rjavascript:S1854"1Remove this useless assignment to variable "sum".(ÕÊÂ×ıÿÿÿÿ
+2javascript:S1763"Unreachable code.(§®¢ìüÿÿÿÿ
+}javascript:S1172""aRemove the unused function parameter "index" or rename it to "_index" to make intention explicit.(¨£†ë
+2javascript:S1763%"Unreachable code.(Ï¹íÒşÿÿÿÿ
+fjavascript:S905+"FExpected an assignment or function call and instead saw an expression.(™À—ûÿÿÿÿ
