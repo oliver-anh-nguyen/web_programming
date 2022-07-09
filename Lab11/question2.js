@@ -28,3 +28,23 @@ http.createServer((req, res) => {
         res.end(data);
     });
 }).listen(3000);
+
+// 4: chunk
+function solution4(req, res) {
+    const file = fs.createReadStream(path.join(__dirname, "file.jpg"), {
+        highWaterMark: 16 * 1024,
+    });
+
+    file.on('data', function(chunk) {
+        res.write(chunk);
+    });
+
+    file.on('end', function() {
+        res.end();
+    })
+
+    file.on("error", (error) => {
+        console.log(error);
+        res.end("Read file error!!!");
+    });
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="carousel.css" rel="stylesheet">
+    <script src="home.js"></script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="nav-link active" aria-current="page" href="#" id="nav-home">Home</a>
+    </nav>
+</header>
+<main>
+    <br>
+    <div class="container marketing">
+        <div id="products" class="row">
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-12">
+                <h2 class="featurette-heading" id="product-heading">Add a new Book</h2>
+                <p class="lead">
+                <form id="product-form">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title">
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="isbn" class="form-label">ISBN</label>
+                        <input type="text" class="form-control" id="isbn">
+                    </div>
+                    <div class="mb-3">
+                        <label for="publishedDate" class="form-label">Published Date</label>
+                        <input type="text" class="form-control" id="publishedDate">
+                    </div>
+                    <div class="mb-3">
+                        <label for="author" class="form-label">Author</label>
+                        <input type="text" class="form-control" id="author">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" id="product-btn">Submit</button>
+                </form>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+</body>
+</html>

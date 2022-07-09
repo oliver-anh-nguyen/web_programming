@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tuan Anh Nguyen</title>
+    <link href="home.css" rel="stylesheet" type="text/css">
+    <script src="home.js"></script>
+</head>
+
+<body>
+    <!--header view-->
+    <nav class="header">
+        <!--logo-->
+        <img src="public/icon_smile.png" alt="icon smile"/>
+        <!--logout view-->
+        <div id="logout-container">
+            <span id="user-name"></span>
+            <button id="btn-logout" type="submit">Logout</button>
+        </div>
+        <!--login view-->
+        <div id="login-container">
+            <form>
+                <input type="text" placeholder="Username" name="username">
+                <input type="text" placeholder="Password" name="psw">
+                <button id="btn-login" type="submit">Login</button>
+            </form>
+        </div>
+    </nav>
+
+    <!--body view-->
+    <div class="detail">
+        <div id="guest-view">
+            <h1>Welcome to my store</h1>
+        </div>
+
+        <div id="user-view">
+            <!--Product List-->
+            <p class="title">Product List</p>
+            <table id="list-products">
+                <tbody>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Image</th>
+                    <th>Stock</th>
+                    <th>Actions</th>
+                </tr>
+                </tbody>
+            </table>
+
+            <!--Your Shopping Cart-->
+            <p class="title">Your Shopping Cart</p>
+            <h2 id="cart-empty">There is no item in your shopping cart!</h2>
+            <div id="cart-product">
+                <table id="list-carts">
+                    <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Quantity</th>
+                    </tr>
+                    </tbody>
+                </table>
+                <!--Button Order-->
+                <div>
+                    <button class="btn_order">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
