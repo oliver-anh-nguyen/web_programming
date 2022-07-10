@@ -20,11 +20,12 @@
         </div>
         <!--login view-->
         <div id="login-container">
-            <form>
-                <input type="text" placeholder="Username" name="username">
-                <input type="text" placeholder="Password" name="psw">
+            <form id="form-login">
+                <input id="username" type="text" placeholder="Username" name="username">
+                <input id="password" type="text" placeholder="Password" name="psw">
                 <button id="btn-login" type="submit">Login</button>
             </form>
+            <label id="error-login">Invalid Username or Password!</label>
         </div>
     </nav>
 
@@ -55,17 +56,22 @@
             <div id="cart-product">
                 <table id="list-carts">
                     <tbody>
-                    <tr>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Total</th>
-                        <th>Quantity</th>
-                    </tr>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                            <th>Quantity</th>
+                        </tr>
                     </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4" id="total-cart" class="total"></td>
+                            </tr>
+                        </tfoot>
                 </table>
                 <!--Button Order-->
                 <div>
-                    <button class="btn_order">Place Order</button>
+                    <button id="btn-order" type="submit">Place Order</button>
                 </div>
             </div>
         </div>

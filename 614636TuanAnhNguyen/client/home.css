@@ -7,7 +7,17 @@ h1 {
     text-align: center;
 }
 
+span {
+    border: 1px solid darkred;
+    font-size: 25px;
+    font-weight: bold;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: darkred;
+}
+
 #user-name {
+    border: none;
     margin-right: 100px;
     font-weight: bold;
 }
@@ -53,7 +63,7 @@ td > img {
 }
 
 /*detail view*/
-.btn_order {
+#btn-order {
     font-size: 20px;
     width: 160px;
     height: 60px;
@@ -118,4 +128,9 @@ td > img {
 
 #logout-container {
     display: none;
+}
+
+#error-login {
+    display: none;
+    color: red;
 }

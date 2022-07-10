@@ -70,14 +70,8 @@ L
 Demo/routes/productRouter.js,6/9/69000c0ff57bf1681ca21c13a79fabfa49213e14
 U
 %Demo/controllers/productController.js,0/f/0f6a4ecd17860554d8887d2290b344878214b23c
-S
-#Lab13/controllers/bookController.js,b/a/ba9369f8cae0e33edf6e5f967aa05ce03633de7a
-D
-Lab13/models/book.js,a/d/addc31aecd7e74c0abb5cffc87aa22c848222ed5
 B
 Lab14/package.json,9/5/951e2c1e114c6d51f640da94523a63ab019a94f3
-J
-Lab13/routes/bookRouter.js,c/6/c67db2b653d546176188dcca6fc36bb713f70fc6
 <
 Lab13/app.js,9/4/945e2fbc58042e9386c334d253baef137a15c9a4
 H
@@ -94,3 +88,13 @@ F
 Lab12/app.js,9/5/9553228afcb1b9041d77bf5d1c01b5f54e8e7992
 F
 Lab12/views/index.html,c/1/c11602732e9857576070e874dccff5d33b5fa051
+S
+#Lab14/controllers/bookController.js,3/f/3fb37856a3ae4a14c266c1e4ab9cc24cfbc977c9
+J
+Lab14/routes/bookRouter.js,3/2/329ce1e64e7c8a64b46e7a07679af59457d6e31c
+D
+Lab14/models/book.js,a/4/a48be1aff55a8e3e1a3171f22b8ae304f71e59d7
+E
+Lab14/views/home.html,0/d/0dba6bfe39525b3323f64ddd50d111c10f59a709
+?
+Lab3/layout.css,d/2/d21a7e560e743b8d9a141b472993311993a5abce

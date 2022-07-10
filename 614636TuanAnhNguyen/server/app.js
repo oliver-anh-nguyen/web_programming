@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const path = require("path");
 const productRoute = require('./routes/productRouter');
+const userRoute = require('./routes/userRouter');
+const cartRoute = require('./routes/cartRoute');
 
 const app = express();
 
@@ -9,7 +11,20 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/public", express.static(path.join(__dirname, 'public')));
-app.use('/products', productRoute);
+app.use('/login', userRoute);
 
+app.use((req, res, next) => {
+    const auth = req.headers.authorization;
+    const token = auth.split(' ')[1];
+    if (token === 'null') {
+        res.json({error: 'no-access-token'});
+    } else {
+        req.user = token.split('-')[0];
+        next();
+    }
+});
+
+app.use('/products', productRoute);
+app.use('/cart', cartRoute);
 
 app.listen(3000);
