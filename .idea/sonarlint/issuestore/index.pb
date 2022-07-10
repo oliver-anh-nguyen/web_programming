@@ -120,8 +120,6 @@ b
 2614636TuanAnhNguyen/server/routes/productRouter.js,d/6/d646a920297503f55409bc24c541068d8f429e1c
 ^
 .614636TuanAnhNguyen/server/routes/cartRoute.js,2/9/29cfd909ea51fcdc94b4755b1f1715b48b5e2c96
-\
-,614636TuanAnhNguyen/server/models/product.js,0/f/0f5254ad276fe5590c994fb491fffbc91094f195
 R
 "614636TuanAnhNguyen/client/home.js,3/7/37f71e24d379c14dbf8072628f859ac13a808022
 h
@@ -138,3 +136,5 @@ Y
 )614636TuanAnhNguyen/server/models/cart.js,6/e/6ea5c3b3ea837a23bc3e2c5192e0ab31e8036974
 Y
 )614636TuanAnhNguyen/server/models/user.js,9/d/9dcabd8ffe417a584679166127562b3d2c1596b2
+\
+,614636TuanAnhNguyen/server/models/product.js,0/f/0f5254ad276fe5590c994fb491fffbc91094f195

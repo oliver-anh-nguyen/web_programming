@@ -2,22 +2,22 @@ let products = [
     {
         id: '1',
         name: 'Swift',
-        price: 79.00,
+        price: 20,
         stock: 5,
         img: 'http://localhost:3000/public/swift.png'
     },
     {
         id: '2',
         name: 'Python',
-        price: 39.39,
-        stock: 10,
+        price: 10,
+        stock: 5,
         img: 'http://localhost:3000/public/python.png'
     },
     {
         id: '3',
         name: 'NodeJs',
-        price: 20.20,
-        stock: 7,
+        price: 10,
+        stock: 5,
         img: 'http://localhost:3000/public/nodejs.png'
     }
 ];
