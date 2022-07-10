@@ -32,43 +32,29 @@ function validateUser() {
 
 function logout() {
     sessionStorage.removeItem('accessToken')
-    removeUIProducts();
-    removeUICart();
+    removeUIChildProduct();
+    removeUIChildCart();
     loadUILogin();
 }
 
-function removeUIProducts() {
-    const tableProducts = document.getElementById("list-products");
-    while (tableProducts.firstChild) {
-        tableProducts.removeChild(tableProducts.firstChild);
-    }
-}
-
-function removeUICart() {
-    const tableCarts = document.getElementById("list-carts");
-    while (tableCarts.firstChild) {
-        tableCarts.removeChild(tableCarts.firstChild);
-    }
-}
-
 async function order() {
-    let order = await fetch(`http://localhost:3000/cart/place-order`, {
-        method: "POST",
+    let orderCart = await fetch(`http://localhost:3000/cart/place-order`, {
+        method: 'POST',
         headers: {
-            "Content-Type": "application/json",
             Authorization: `Bearer ${sessionStorage.getItem('accessToken')}`
         },
     });
-    const result = await order.json();
+    const result = await orderCart.json();
 
     if (result.error) {
         showAlertError(result.error);
     } else {
         updateTotalCost(0);
-        removeUICart();
         loadUICarts(false);
-        alert(result.message);
+        removeUIChildCart();
+        removeUIChildProduct();
         getListProducts();
+        alert(result.message);
     }
 }
 
@@ -110,6 +96,7 @@ async function getListCards() {
         loadUICarts(false);
     } else {
         loadUICarts(true);
+        updateTotalCost(result.total);
         renderCartTable(result.items);
     }
 }
@@ -196,6 +183,26 @@ function renderCartTable(items) {
     items.forEach((prod) => {
         renderCartItem(prod);
     });
+}
+
+function removeUIChildProduct() {
+    let tableProducts = document.getElementById('list-products');
+    let tableRows = tableProducts.getElementsByTagName('tr');
+    let rowCount = tableRows.length;
+
+    for (let x=rowCount-1; x>0; x--) {
+        tableProducts.removeChild(tableRows[x]);
+    }
+}
+
+function removeUIChildCart() {
+    let tableCarts = document.getElementById('list-carts');
+    let tableRows = tableCarts.getElementsByTagName('tr');
+    let rowCount = tableRows.length;
+
+    for (let x=rowCount-1; x>1; x--) {
+        tableCarts.removeChild(tableRows[x]);
+    }
 }
 
 function renderCartItem(item) {
@@ -329,6 +336,12 @@ function showAlertError(error) {
         logout();
     }
     if (error === 'out-of-stock') {
-        alert('Out Of Stock!')
+        alert('Out Of Stock!');
+    }
+    if (error === 'cart-empty') {
+        alert('Cart Empty!');
+    }
+    if (error === 'order-fail') {
+        alert('Place Order Fail!');
     }
 }

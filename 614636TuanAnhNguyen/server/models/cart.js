@@ -16,27 +16,50 @@ module.exports = class Cart {
         return cart;
     }
 
-    addProduct(productId, username, quantity) {
+    addCart(productId, username) {
         const product =  Product.getProductById(productId);
         const cart = Cart.getCartByUser(username);
         let cartItem = {};
         cartItem.id = product.id;
         cartItem.price = product.price;
         cartItem.name = product.name;
-        cartItem.quantity = quantity;
-        if (cart.canAddItem(cartItem, product.stock)) {
-            const result = cart.add(cartItem);
+        cartItem.quantity = 1;
+        if (cart.canAddProduct(cartItem, product.stock)) {
+            const result = cart.addItem(cartItem);
             const total = cart.totalCost();
-            return {total, item: result};
+            return {item: result, total};
         } else {
             return {error:'out-of-stock'};
         }
     }
 
+    addItem(cartItem) {
+        let product = this.products.find(p => p.id === cartItem.id);
+        if (!product) {
+            product = cartItem;
+            product.quantity = cartItem.quantity;
+            cartItem.total = cartItem.quantity * cartItem.price;
+            this.products.push(cartItem);
+        } else {
+            product.quantity += cartItem.quantity;
+            product.total = product.quantity * product.price;
+        }
+        return product;
+    }
+
+    canAddProduct(cartItem, stock) {
+        const product = this.products.find(p => p.id === cartItem.id);
+        let quantity = cartItem.quantity;
+        if (product) {
+            quantity += product.quantity;
+        }
+        return quantity <= stock;
+    }
+
     getCart(username) {
         const cart = Cart.getCartByUser(username);
         const total = cart.totalCost();
-        return { total, items: cart.products };
+        return { items: cart.products, total };
     }
 
     updateCard(id, quantity, username) {
@@ -47,8 +70,20 @@ module.exports = class Cart {
         cartItem.price = product.price;
         cartItem.name = product.name;
         cartItem.quantity = quantity;
-        if (quantity > 0 && !cart.canAddItem(cartItem, product.stock)) {
+        if (quantity > 0 && !cart.canAddProduct(cartItem, product.stock)) {
             return {error:'out-of-stock'};
+        } else if (quantity < 0 && !cart.canAddProduct(cartItem, product.stock)) {
+            const result = cart.products.find(product => product.id === cartItem.id);
+            if (result) {
+                result.quantity = product.stock;
+                result.total = result.quantity * result.price;
+                if (result.quantity == 0) {
+                    const index = cart.products.indexOf(result);
+                    cart.products.splice(index, 1);
+                }
+            }
+            const total = cart.totalCost();
+            return {  total, item: result };
         } else {
             const result = cart.update(cartItem);
             const total = cart.totalCost();
@@ -65,12 +100,12 @@ module.exports = class Cart {
         if (cart.canPlaceOrder(username)) {
             cart.placeOrder();
 
-            if (!cart.items || cart.items.length === 0) {
+            if (!cart.products || cart.products.length === 0) {
                 return {error: 'cart-empty'};
             }
 
-            cart.items.forEach((prod) => {
-                Product.placeOrder(prod);
+            cart.products.forEach((prod) => {
+                Product.updateStock(prod);
             });
 
             return { message: "order-success" };
@@ -90,7 +125,7 @@ module.exports = class Cart {
         const cart = Cart.getCartByUser(username);
         const canPlaceOrder = cart.products.filter((item) => {
             const { id, quantity } = item;
-            const isOrder = Product.canPlaceOrder(id, quantity);
+            const isOrder = Product.checkProductStock(id, quantity);
             return !isOrder;
         });
 
@@ -98,45 +133,22 @@ module.exports = class Cart {
     }
 
     update(item) {
-        const i = this.products.find(i => i.id === item.id);
-        if (i) {
-            i.quantity += item.quantity;
-            i.total = i.quantity * i.price;
-            if (i.quantity <= 0) {
-                const index = this.products.indexOf(i);
+        const product = this.products.find(product => product.id === item.id);
+        if (product) {
+            product.quantity += item.quantity;
+            product.total = product.quantity * product.price;
+            if (product.quantity == 0) {
+                const index = this.products.indexOf(product);
                 this.products.splice(index, 1);
             }
         }
-        return i;
+        return product;
     }
 
     totalCost() {
         return this.products.reduce((total, item) => {
             return total + item.total;
         }, 0);
-    }
-
-    add(item) {
-        let i = this.products.find(i => i.id === item.id);
-        if (!i) {
-            i = item;
-            i.quantity = item.quantity;
-            item.total = item.quantity * item.price;
-            this.products.push(item);
-        } else {
-            i.quantity += item.quantity;
-            i.total = i.quantity * i.price;
-        }
-        return i;
-    }
-
-    canAddItem(item, stock) {
-        const i = this.products.find(i => i.id === item.id);
-        let quantity = item.quantity;
-        if (i) {
-            quantity += i.quantity;
-        }
-        return quantity <= stock;
     }
 }
 

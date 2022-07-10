@@ -4,9 +4,9 @@ exports.getCartByUser = (req, res) => {
     res.json(Cart.getCartByUser(req.user));
 }
 
-exports.addProduct = (req, res) => {
+exports.addCart = (req, res) => {
     const cart = Cart.getCartByUser(req.user);
-    res.json(cart.addProduct(req.params.productId, req.user, 1));
+    res.json(cart.addCart(req.params.productId, req.user));
 }
 
 exports.getCart = (req, res) => {

@@ -36,23 +36,20 @@ module.exports = class Product {
     }
 
     static getProductById(productId) {
-        return products.find(p => p.id === productId);
+        let product = products.find(p => p.id === productId);
+        return product;
     }
 
-    static canPlaceOrder(productId, quantity) {
+    static checkProductStock(productId, quantity) {
         const prod = Product.getProductById(productId);
-        return prod.checkCanOrder(quantity);
+        return prod.stock >= quantity;
     }
 
-    static placeOrder(prod) {
-        const p = Product.getProductById(prod.id);
-        if (p) {
-            p.stock -= prod.quantity;
+    static updateStock(prod) {
+        const product = Product.getProductById(prod.id);
+        if (product) {
+            product.stock -= prod.quantity;
         }
-        return p;
-    }
-
-    checkCanOrder(quantity) {
-        return this.stock >= quantity;
+        return product;
     }
 };

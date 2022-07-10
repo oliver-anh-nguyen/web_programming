@@ -39,7 +39,7 @@
             <!--Product List-->
             <p class="title">Product List</p>
             <table id="list-products">
-                <tbody>
+                <thead>
                 <tr>
                     <th>Name</th>
                     <th>Price</th>
@@ -47,7 +47,7 @@
                     <th>Stock</th>
                     <th>Actions</th>
                 </tr>
-                </tbody>
+                </thead>
             </table>
 
             <!--Your Shopping Cart-->
@@ -55,19 +55,19 @@
             <h2 id="cart-empty">There is no item in your shopping cart!</h2>
             <div id="cart-product">
                 <table id="list-carts">
-                    <tbody>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Quantity</th>
+                    </tr>
+                    </thead>
+                    <tfoot>
                         <tr>
-                            <th>Name</th>
-                            <th>Price</th>
-                            <th>Total</th>
-                            <th>Quantity</th>
+                            <td colspan="4" id="total-cart" class="total"></td>
                         </tr>
-                    </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="4" id="total-cart" class="total"></td>
-                            </tr>
-                        </tfoot>
+                    </tfoot>
                 </table>
                 <!--Button Order-->
                 <div>
