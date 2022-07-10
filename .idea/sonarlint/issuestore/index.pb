@@ -124,17 +124,5 @@ R
 "614636TuanAnhNguyen/client/home.js,3/7/37f71e24d379c14dbf8072628f859ac13a808022
 h
 8614636TuanAnhNguyen/server/controllers/cartController.js,f/6/f6c4a05b5167df3757cc0c7f2180243a55057ad0
-W
-'614636TuanAnhNguyen/server/package.json,1/8/1869835ff91c1755c42419b2e57f8f52c391fe88
 \
 ,614636TuanAnhNguyen/server/package-lock.json,4/3/4301184001997d208c0f54a35ee33dcafcecfb24
-Q
-!614636TuanAnhNguyen/server/app.js,f/c/fc9196a0b9b710afd592fe619bc96e9dd323f877
-T
-$614636TuanAnhNguyen/client/home.html,8/f/8f339eaf87fdb3ed87928af147ca27f2d0cd8890
-Y
-)614636TuanAnhNguyen/server/models/cart.js,6/e/6ea5c3b3ea837a23bc3e2c5192e0ab31e8036974
-Y
-)614636TuanAnhNguyen/server/models/user.js,9/d/9dcabd8ffe417a584679166127562b3d2c1596b2
-\
-,614636TuanAnhNguyen/server/models/product.js,0/f/0f5254ad276fe5590c994fb491fffbc91094f195
