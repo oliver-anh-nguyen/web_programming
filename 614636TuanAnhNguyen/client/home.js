@@ -21,10 +21,16 @@ window.onload = function () {
 function validateUser() {
     let user = sessionStorage.getItem('accessToken');
     if (user) {
-        const userName = user.split('-')[0];
-        loadUILogout(userName);
-        getListProducts();
-        getListCards();
+        try {
+            const userName = user.split('-')[0];
+            loadUILogout(userName);
+            getListProducts();
+            getListCards();
+        } catch {
+            alert('No Access Token!');
+            logout();
+        }
+
     } else {
         loadUILogin();
     }
@@ -54,7 +60,7 @@ async function order() {
         removeUIChildCart();
         removeUIChildProduct();
         getListProducts();
-        alert(result.message);
+        alert('Order Successfully!!!');
     }
 }
 
@@ -133,12 +139,39 @@ async function insertProduct(item) {
     }
 }
 
-async function updateQuantity(cartItem, quantity) {
+async function reduceQuantity(cartItem) {
     let cart = await fetch(`http://localhost:3000/cart`, {
         method: "PUT",
         body: JSON.stringify({
             id: cartItem.id,
-            quantity: quantity,
+            quantity: -1,
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${sessionStorage.getItem('accessToken')}`
+        }
+    });
+    const result = await cart.json();
+
+    if (result.error) {
+        showAlertError(result.error);
+    } else {
+        loadUICarts(result.total > 0);
+        addCartItem(result.item);
+        updateTotalCost(result.total);
+    }
+}
+
+
+async function increaseQuantity(cartItem) {
+    if (cartItem.quantity >= cartItem.stock) {
+        return;
+    }
+    let cart = await fetch(`http://localhost:3000/cart`, {
+        method: "PUT",
+        body: JSON.stringify({
+            id: cartItem.id,
+            quantity: 1,
         }),
         headers: {
             'Content-Type': 'application/json',
@@ -165,10 +198,21 @@ function addCartItem(item) {
             table.removeChild(tr);
             return;
         }
+
         const total = document.getElementById(`cart-total-${id}`);
         total.textContent = formatTotal(item.total);
         const quantity = document.getElementById(`cart-quantity-${id}`);
         quantity.textContent = item.quantity;
+
+        const addButton = document.getElementById(`cart-add-${id}`);
+        if (item.quantity >= item.stock) {
+            addButton.classList = "btn-disable";
+        } else {
+            addButton.classList = "btn-normal";
+        }
+        addButton.onclick = function () {
+            increaseQuantity(item);
+        }
     } else {
         renderCartItem(item);
     }
@@ -225,7 +269,7 @@ function renderCartItem(item) {
     const minus = document.createElement("img");
     minus.src = "public/icon_minus.png"
     minus.onclick = function () {
-        updateQuantity(item, -1);
+        reduceQuantity(item, -1);
     };
     tdQuantity.appendChild(minus);
 
@@ -234,12 +278,18 @@ function renderCartItem(item) {
     quantity.textContent = item.quantity;
     tdQuantity.appendChild(quantity);
 
-    const add = document.createElement("img");
-    add.src = "public/icon_plus.png"
-    add.onclick = function () {
-        updateQuantity(item, 1);
+    const addButton = document.createElement("img");
+    addButton.id = `cart-add-${item.id}`;
+    addButton.src = "public/icon_plus.png"
+    if (item.quantity >= item.stock) {
+        addButton.classList = "btn-disable";
+    } else {
+        addButton.classList = "btn-normal";
+    }
+    addButton.onclick = function () {
+        increaseQuantity(item, 1);
     };
-    tdQuantity.appendChild(add);
+    tdQuantity.appendChild(addButton);
 
     tr.appendChild(tdName);
     tr.appendChild(tdPrice);
@@ -277,7 +327,9 @@ function renderProduct(item) {
     iconCart.onclick = function() {
         insertProduct(item);
     };
-    tdCart.appendChild(iconCart);
+    if (item.stock > 0) {
+        tdCart.appendChild(iconCart);
+    }
 
     tr.appendChild(tdName);
     tr.appendChild(tdPrice);

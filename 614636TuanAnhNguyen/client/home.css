@@ -134,3 +134,11 @@ td > img {
     display: none;
     color: red;
 }
+
+.btn-disable {
+    opacity: 0.3;
+}
+
+.btn-normal {
+    opacity: 1.0;
+}

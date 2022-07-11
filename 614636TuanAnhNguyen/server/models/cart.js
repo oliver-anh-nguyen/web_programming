@@ -23,6 +23,7 @@ module.exports = class Cart {
         cartItem.id = product.id;
         cartItem.price = product.price;
         cartItem.name = product.name;
+        cartItem.stock = product.stock;
         cartItem.quantity = 1;
         if (cart.canAddProduct(cartItem, product.stock)) {
             const result = cart.addItem(cartItem);
@@ -59,6 +60,9 @@ module.exports = class Cart {
     getCart(username) {
         const cart = Cart.getCartByUser(username);
         const total = cart.totalCost();
+        cart.products.forEach(item => {
+            item.stock = Product.getProductById(item.id).stock;
+        })
         return { items: cart.products, total };
     }
 
@@ -69,6 +73,7 @@ module.exports = class Cart {
         cartItem.id = product.id;
         cartItem.price = product.price;
         cartItem.name = product.name;
+        cartItem.stock = product.stock;
         cartItem.quantity = quantity;
         if (quantity > 0 && !cart.canAddProduct(cartItem, product.stock)) {
             return {error:'out-of-stock'};
@@ -77,6 +82,7 @@ module.exports = class Cart {
             if (result) {
                 result.quantity = product.stock;
                 result.total = result.quantity * result.price;
+                result.stock = product.stock;
                 if (result.quantity == 0) {
                     const index = cart.products.indexOf(result);
                     cart.products.splice(index, 1);
@@ -137,6 +143,7 @@ module.exports = class Cart {
         if (product) {
             product.quantity += item.quantity;
             product.total = product.quantity * product.price;
+            product.stock = item.stock;
             if (product.quantity == 0) {
                 const index = this.products.indexOf(product);
                 this.products.splice(index, 1);
