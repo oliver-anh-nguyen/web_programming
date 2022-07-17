@@ -3,3 +3,9 @@ body {
     margin: auto;
     font-family: "Khmer MN";
 }
+
+.icon-avatar {
+    margin-top: 50px;
+    width: 300px;
+    height: 200px;
+}
