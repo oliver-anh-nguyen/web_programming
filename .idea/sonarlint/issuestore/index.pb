@@ -1,6 +1,4 @@
 
-9
-	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 8
 main.css,3/3/33e0a7d96f2f283eb6f94bbfd4ce882c6816f77d
 @
@@ -37,9 +35,6 @@ A
 Lab9/question2.js,a/0/a0a87b5cdeac8b25244aabe5f6e3f7de1e72bafd
 B
 Lab10/question2.js,3/7/375f07329af91c53814d69c3d4d1a3006fe9e4d1
-:
-
-index.html,f/6/f6013a00b362253c64368d6eebc50ea2131754e2
 B
 Lab12/package.json,9/c/9c52501fa6886a9d4ba2f984ae5f88ee5cc52875
 A
@@ -104,37 +99,7 @@ D
 Lab13/models/book.js,a/d/addc31aecd7e74c0abb5cffc87aa22c848222ed5
 J
 Lab13/routes/bookRouter.js,c/6/c67db2b653d546176188dcca6fc36bb713f70fc6
-h
-8614636TuanAnhNguyen/server/controllers/userController.js,1/3/13297e15bb0b9f246e596f6c5cbcd3fd2c4a900e
 S
 #Lab13/controllers/bookController.js,b/a/ba9369f8cae0e33edf6e5f967aa05ce03633de7a
 @
 Lab3/layout.html,0/3/031778951ea5a31348bfafe155f68731a68b3850
-_
-/614636TuanAnhNguyen/server/routes/userRouter.js,d/6/d64c3285699e3ad93850a9a0456622b33d99efdf
-k
-;614636TuanAnhNguyen/server/controllers/productController.js,0/b/0b7f1692f651b7fb77d9c47a775b4ae70fc7d667
-b
-2614636TuanAnhNguyen/server/routes/productRouter.js,d/6/d646a920297503f55409bc24c541068d8f429e1c
-\
-,614636TuanAnhNguyen/server/package-lock.json,4/3/4301184001997d208c0f54a35ee33dcafcecfb24
-Y
-)614636TuanAnhNguyen/server/models/user.js,9/d/9dcabd8ffe417a584679166127562b3d2c1596b2
-\
-,614636TuanAnhNguyen/server/models/product.js,0/f/0f5254ad276fe5590c994fb491fffbc91094f195
-W
-'614636TuanAnhNguyen/server/package.json,1/8/1869835ff91c1755c42419b2e57f8f52c391fe88
-S
-#614636TuanAnhNguyen/client/home.css,5/d/5d26e9127f52bcfa09d4c9bb790cb3f256e6a3fe
-^
-.614636TuanAnhNguyen/server/routes/cartRoute.js,2/9/29cfd909ea51fcdc94b4755b1f1715b48b5e2c96
-h
-8614636TuanAnhNguyen/server/controllers/cartController.js,f/6/f6c4a05b5167df3757cc0c7f2180243a55057ad0
-Y
-)614636TuanAnhNguyen/server/models/cart.js,6/e/6ea5c3b3ea837a23bc3e2c5192e0ab31e8036974
-Q
-!614636TuanAnhNguyen/server/app.js,f/c/fc9196a0b9b710afd592fe619bc96e9dd323f877
-R
-"614636TuanAnhNguyen/client/home.js,3/7/37f71e24d379c14dbf8072628f859ac13a808022
-T
-$614636TuanAnhNguyen/client/home.html,8/f/8f339eaf87fdb3ed87928af147ca27f2d0cd8890
