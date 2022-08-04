@@ -27,4 +27,4 @@ app.use((req, res, next) => {
 app.use('/products', productRoute);
 app.use('/cart', cartRoute);
 
-app.listen(3000);
+app.listen(process.env.PORT || 5000)
