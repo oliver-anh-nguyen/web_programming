@@ -44,7 +44,7 @@ function logout() {
 }
 
 async function order() {
-    let orderCart = await fetch(`http://localhost:3000/cart/place-order`, {
+    let orderCart = await fetch(`https://wap-shopping-cart.herokuapp.com/cart/place-order`, {
         method: 'POST',
         headers: {
             Authorization: `Bearer ${sessionStorage.getItem('accessToken')}`
@@ -65,7 +65,7 @@ async function order() {
 }
 
 async function login() {
-    let user = await fetch('http://localhost:3000/login', {
+    let user = await fetch('https://wap-shopping-cart.herokuapp.com/login', {
         method: 'POST',
         body: JSON.stringify({
             username: document.getElementById('username').value,
@@ -90,7 +90,7 @@ async function login() {
 }
 
 async function getListCards() {
-    let products = await fetch('http://localhost:3000/cart',{
+    let products = await fetch('https://wap-shopping-cart.herokuapp.com/cart',{
         headers: {
             Authorization: `Bearer ${sessionStorage.getItem('accessToken')}`
         }
@@ -108,7 +108,7 @@ async function getListCards() {
 }
 
 async function getListProducts() {
-    let products = await fetch('http://localhost:3000/products',{
+    let products = await fetch('https://wap-shopping-cart.herokuapp.com/products',{
         headers: {
             Authorization: `Bearer ${sessionStorage.getItem('accessToken')}`
         }
@@ -123,7 +123,7 @@ async function getListProducts() {
 }
 
 async function insertProduct(item) {
-    let carts = await fetch(`http://localhost:3000/cart/${item.id}`,{
+    let carts = await fetch(`https://wap-shopping-cart.herokuapp.com/cart/${item.id}`,{
         method: 'POST',
         headers: {
             Authorization: `Bearer ${sessionStorage.getItem('accessToken')}`
@@ -140,7 +140,7 @@ async function insertProduct(item) {
 }
 
 async function reduceQuantity(cartItem) {
-    let cart = await fetch(`http://localhost:3000/cart`, {
+    let cart = await fetch(`https://wap-shopping-cart.herokuapp.com/cart`, {
         method: "PUT",
         body: JSON.stringify({
             id: cartItem.id,
@@ -167,7 +167,7 @@ async function increaseQuantity(cartItem) {
     if (cartItem.quantity >= cartItem.stock) {
         return;
     }
-    let cart = await fetch(`http://localhost:3000/cart`, {
+    let cart = await fetch(`https://wap-shopping-cart.herokuapp.com/cart`, {
         method: "PUT",
         body: JSON.stringify({
             id: cartItem.id,

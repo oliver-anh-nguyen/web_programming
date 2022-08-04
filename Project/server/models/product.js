@@ -4,21 +4,21 @@ let products = [
         name: 'Swift',
         price: 20,
         stock: 5,
-        img: 'http://localhost:3000/public/swift.png'
+        img: 'https://wap-shopping-cart.herokuapp.com/public/swift.png'
     },
     {
         id: '2',
         name: 'Python',
         price: 10,
         stock: 5,
-        img: 'http://localhost:3000/public/python.png'
+        img: 'https://wap-shopping-cart.herokuapp.com/public/python.png'
     },
     {
         id: '3',
         name: 'NodeJs',
         price: 10,
         stock: 5,
-        img: 'http://localhost:3000/public/nodejs.png'
+        img: 'https://wap-shopping-cart.herokuapp.com/public/nodejs.png'
     }
 ];
 

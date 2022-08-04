@@ -15,13 +15,16 @@ app.use('/login', userRoute);
 
 app.use((req, res, next) => {
     const auth = req.headers.authorization;
-    const token = auth.split(' ')[1];
-    if (token === 'null' || token == undefined) {
-        res.json({error: 'no-access-token'});
-    } else {
-        req.user = token.split('-')[0];
-        next();
+    if (auth) {
+        const token = auth.split(' ')[1];
+        if (token === 'null' || token == undefined) {
+            res.json({error: 'no-access-token'});
+        } else {
+            req.user = token.split('-')[0];
+            next();
+        }
     }
+
 });
 
 app.use('/products', productRoute);
